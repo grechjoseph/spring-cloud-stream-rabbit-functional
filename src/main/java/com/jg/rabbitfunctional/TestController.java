@@ -11,11 +11,11 @@ import java.util.function.Consumer;
 @RequiredArgsConstructor
 public class TestController {
 
-    private final Consumer<String> jgConsumeIt;
+    private final Consumer<String> manualSupplier;
 
     @GetMapping("/{message}")
     public void publishMessage(@PathVariable final String message) {
-        jgConsumeIt.accept(message);
+        manualSupplier.accept(message);
     }
 
 }
