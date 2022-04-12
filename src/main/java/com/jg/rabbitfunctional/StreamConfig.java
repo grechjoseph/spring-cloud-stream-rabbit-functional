@@ -46,7 +46,7 @@ public class StreamConfig {
         return s -> log.info("Logger1 ::: {}", s);
     }
 
-//    See: Decorate Logger2 Consumer
+//    See: Logger2 Consumer
 //    @Bean
 //    public Consumer<String> logger2() {
 //        return s -> log.info("Logger2 ::: {}", s);
