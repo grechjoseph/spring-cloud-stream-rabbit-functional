@@ -1,0 +1,31 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: '5672'
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      default-binder: rabbit
+      function:
+        definition: stringSupplier;toUppercase;logger1;logger2
+        bindings:
+          stringSupplier-out-0: source-out
+          toUppercase-in-0: transform-in
+          toUppercase-out-0: transform-out
+          logger1-in-0: sink-in-1
+          logger2-in-0: sink-in-2
+      bindings:
+        source-out:
+          destination: source-events
+        transform-in:
+          destination: source-events
+          group: transform
+        transform-out:
+          destination: transformed-events
+        sink-in-1:
+          destination: transformed-events
+          group: sink-1
+        sink-in-2:
+          destination: transformed-events
+          group: sink-2
