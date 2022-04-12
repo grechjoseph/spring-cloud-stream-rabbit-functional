@@ -12,6 +12,24 @@ public Supplier<String> someSource() {
 }
 ```
 
+OR
+
+```
+spring.cloud.function.scan.packages=com.jg.rabbitfunctional
+```
+
+```java
+public class SomeSource implements Supplier<Flux<String>> {
+    
+    @Override
+    public Flux<String> get() {
+        return Flux.interval(Duration.of(3, SECONDS))
+                .map(i -> LocalDateTime.now() + " ::: Hello World!");
+    }
+    
+}
+```
+
 ### Binding
 
 Output Supplier's events to exchange <b>some-source-events</b>.
