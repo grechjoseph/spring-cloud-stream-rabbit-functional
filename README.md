@@ -17,13 +17,13 @@ public Supplier<String> someSource() {
 Output Supplier's events to exchange <b>some-source-events</b>.
 
 ```
-spring.cloud.stream.bindings.someSource-out-0.destination=some-supplier-events
+spring.cloud.stream.bindings.someSource-out-0.destination=some-source-events
 ```
 
 #### Alias for Bindings
 ```
 spring.cloud.stream.function.bindings.someSource-out-0=do-the-source
-spring.cloud.stream.bindings.do-the-source.destination=some-supplier-events
+spring.cloud.stream.bindings.do-the-source.destination=some-source-events
 ```
 
 The <b>-out-0</b> part is standard for output.
