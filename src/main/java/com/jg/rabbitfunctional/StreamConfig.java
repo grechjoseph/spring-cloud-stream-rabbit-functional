@@ -36,6 +36,11 @@ public class StreamConfig {
     }
 
     @Bean
+    public Function<String, String> decorate() {
+        return s -> "*** " + s + " ***";
+    }
+
+    @Bean
     public Consumer<String> logger1() {
         return s -> log.info("Logger1 ::: {}", s);
     }

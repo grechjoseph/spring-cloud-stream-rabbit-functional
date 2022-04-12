@@ -20,6 +20,12 @@ Output Supplier's events to exchange <b>some-source-events</b>.
 spring.cloud.stream.bindings.someSource-out-0.destination=some-supplier-events
 ```
 
+#### Alias for Bindings
+```
+spring.cloud.stream.function.bindings.someSource-out-0=do-the-source
+spring.cloud.stream.bindings.do-the-source.destination=some-supplier-events
+```
+
 The <b>-out-0</b> part is standard for output.
 
 ## Transformer/Processor/Function
@@ -40,6 +46,13 @@ Handle events coming from exchange <b>some-source-events</b>.
 ```
 spring.cloud.stream.bindings.someTransformer-in-0.destination=some-source-events
 spring.cloud.stream.bindings.someTransformer-in-0.group=to-uppercase-transformer
+```
+
+#### Alias for Bindings
+```
+spring.cloud.stream.function.bindings.someTransformer-in-0=do-the-transform
+spring.cloud.stream.bindings.do-the-transform.destination=some-source-events
+spring.cloud.stream.bindings.do-the-transform.group=to-uppercase-transformer
 ```
 
 The <b>-in-0</b> part is standard for input.
@@ -68,6 +81,12 @@ Handle events coming from exchange <b>some-transformer-events</b>.
 ```
 spring.cloud.stream.bindings.someSink-in-0.destination=some-transformer-events
 spring.cloud.stream.bindings.someSink-in-0.group=some-consumer
+```
+#### Alias for Bindings
+```
+spring.cloud.stream.function.bindings.someSink-in-0=do-the-sink
+spring.cloud.stream.bindings.do-the-sink.destination=some-transformer-events
+spring.cloud.stream.bindings.do-the-sink.group=some-consumer
 ```
 
 ## Register Functions to Stream
