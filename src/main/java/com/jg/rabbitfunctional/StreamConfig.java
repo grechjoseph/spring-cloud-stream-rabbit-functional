@@ -35,19 +35,21 @@ public class StreamConfig {
         return String::toUpperCase;
     }
 
-    @Bean
-    public Function<String, String> decorate() {
-        return s -> "*** " + s + " ***";
-    }
+//    See: Decorate Function
+//    @Bean
+//    public Function<String, String> decorate() {
+//        return s -> "*** " + s + " ***";
+//    }
 
     @Bean
     public Consumer<String> logger1() {
         return s -> log.info("Logger1 ::: {}", s);
     }
 
-    @Bean
-    public Consumer<String> logger2() {
-        return s -> log.info("Logger2 ::: {}", s);
-    }
+//    See: Decorate Logger2 Consumer
+//    @Bean
+//    public Consumer<String> logger2() {
+//        return s -> log.info("Logger2 ::: {}", s);
+//    }
 
 }
